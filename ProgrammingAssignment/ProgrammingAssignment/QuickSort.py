@@ -3,47 +3,51 @@ import json
 
 def read_file(file_name):
     """
-    this function reads a file containing numbers, one per line. it checks if the file exists, and if it does, 
-    it opens the file and reads each line, converting each line into an integer and adding it to a list. 
-    if the file does not exist, it prints an error message and returns an empty list.
+    Reads a file containing numbers, one per line. Checks if the file exists and, if it does, 
+    opens the file and reads each line, converting each line into an integer and adding it to a list. 
+    If the file does not exist, it prints an error message and returns an empty list.
+    
+    Parameters:
+    file_name (str): The name of the file to be read
+    
+    Returns:
+    list: A list of integers contained in the file
     """
     if not os.path.isfile(file_name):
         print(f"file {file_name} does not exist.")
         return []
     with open(file_name, 'r') as file:
         return [int(line.strip()) for line in file]
-
+    
 def quicksort(arr, start, end, comparison_count, partition_func):
     """
-    This function sorts a portion of an array using the QuickSort algorithm. It uses the Insertion Sort algorithm 
-    for small subarrays (10 elements or less). It also counts the number of comparisons made during the sorting process.
-
+    Implements the QuickSort sorting algorithm. The function is recursive and uses a partition function 
+    to divide the list into two halves and then calls itself for each half.
+    
     Parameters:
     arr (list): The list to be sorted
-    start (int): The starting index of the portion to be sorted
-    end (int): The ending index of the portion to be sorted
-    comparison_count (int): The number of comparisons made during the sorting process
-    partition_func (function): The function used to partition the array
+    start (int): The starting index of the list or sublist to be sorted
+    end (int): The ending index of the list or sublist to be sorted
+    comparison_count (int): Counter for the number of comparisons made
+    partition_func (function): The partition function to be used
     
     Returns:
-    int: The number of comparisons made during the sorting process
+    int: The total number of comparisons made
     """
-    if end - start <= 10:  # Use insertion sort for small subarrays
-        arr[start:end] = insertion_sort(arr[start:end])
-        comparison_count += (end - start) * (end - start - 1) // 2
-    elif start < end:
+    if start < end:
         comparison_count += end - start - 1
         pivot_index = partition_func(arr, start, end)
         comparison_count = quicksort(arr, start, pivot_index, comparison_count, partition_func)
         comparison_count = quicksort(arr, pivot_index + 1, end, comparison_count, partition_func)
     return comparison_count
+
  
 def partition(arr, start, end):
     """
-    This function partitions a portion of an array around a pivot, which is the first element of the portion. 
-    It rearranges the elements so that all elements less than the pivot come before all elements greater than the pivot.
+    Partitions a portion of an array around a pivot, which is the first element of the portion. 
+    Rearranges the elements so that all elements less than the pivot come before all elements greater than the pivot.
     
-     Parameters:
+    Parameters:
     arr (list): The list to be partitioned
     start (int): The starting index of the portion to be partitioned
     end (int): The ending index of the portion to be partitioned
@@ -96,8 +100,8 @@ def partition_last(arr, start, end):
 
 def insertion_sort(arr):
     """
-    This function sorts an array using the Insertion Sort algorithm. It iteratively consumes one input element at
-    each repetition and grows a sorted output list. At each iteration, it removes one element from the input data,
+    Sorts a list using the Insertion Sort algorithm. Iteratively consumes one input element at each repetition 
+    and grows a sorted output list. At each iteration, it removes one element from the input data, 
     finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.
     
     Parameters:
@@ -117,21 +121,19 @@ def insertion_sort(arr):
 
 def quicksort_count(file_name, partition_func):
     """
-    This function reads a file of numbers, sorts the numbers using the QuickSort algorithm, and returns the number of comparisons made during the sorting process.
-    The script reads a JSON file to get the name of the file containing the numbers to be sorted. It then calls quicksort_count(file_name) to sort the numbers and print the number of comparisons.
+    Reads an input file, sorts the numbers contained in it using the QuickSort algorithm, and returns the number of comparisons made.
     
     Parameters:
-    file_name (str): The name of the file containing the numbers to be sorted
-    partition_func (function): The function used to partition the array
+    file_name (str): The name of the file to be read and sorted
+    partition_func (function): The partition function to be used in QuickSort
     
     Returns:
-    int: The number of comparisons made during the sorting process
+    int: The total number of comparisons made
     """
     comparison_count = 0
     arr = read_file(file_name)
-    if not arr:
-        return
-    comparison_count = quicksort(arr, 0, len(arr), comparison_count, partition_func)
+    if arr:
+        comparison_count = quicksort(arr, 0, len(arr), comparison_count, partition_func)
     return comparison_count
 
 # Read the JSON file and extract the file_name
