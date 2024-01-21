@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>83cf1cb4-4a87-40fd-b456-3cc435bda1bd</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>QuickSort.py</StartupFile>
+    <StartupFile>KargerMinCut.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -15,6 +15,11 @@
     <UnitTestPattern>test*.py</UnitTestPattern>
     <UnitTestRootDirectory>./Tests</UnitTestRootDirectory>
     <InterpreterId>MSBuild|venv|$(MSBuildProjectFullPath)</InterpreterId>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <InterpreterPath>
+    </InterpreterPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +30,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="KargerMinCut.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="QuickSort.py" />
     <Compile Include="__init__ .py" />
     <Compile Include="Tests\__init__.py" />
@@ -41,6 +49,8 @@
     <Content Include="parameters_values.json" />
     <Content Include="Tests\parameters_values.json" />
     <Content Include="requirements.txt" />
+    <Content Include="Data\KargerMinCut.txt" />
+    <Content Include="CommandLine.md" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="venv\">
