@@ -20,9 +20,6 @@ def read_graph_from_file(file_path):
                 edge_count += 1
 
             all_vertices = set(graph.keys()) | set(graph_rev.keys())
-            for vertex in all_vertices:
-                graph.setdefault(vertex, [])
-                graph_rev.setdefault(vertex, [])
 
         logging.info(f"File successfully read with {len(all_vertices)} vertices and {edge_count} edges.")
     except FileNotFoundError:
@@ -48,10 +45,10 @@ def dfs_iterative(graph, start_vertex, visited, stack=None, count=False):
                 logging.debug(f"Current SCC size: {size}.")
             if stack is not None:
                 stack.append(vertex)
-            for neighbor in reversed(graph.get(vertex, [])):
+            for neighbor in graph[vertex]:  
                 if neighbor not in visited:
                     logging.debug(f"Visiting neighbor {neighbor} of vertex {vertex}. Adding to stack.")
-                    stack_dfs.append(neighbor)   
+                    stack_dfs.append(neighbor)
                     
     logging.debug(f"Exiting DFS for vertex {start_vertex} with SCC size: {size if count else 'N/A'}.")
     return size if count else None
