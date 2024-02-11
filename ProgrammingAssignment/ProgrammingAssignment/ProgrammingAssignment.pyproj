@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>83cf1cb4-4a87-40fd-b456-3cc435bda1bd</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>KargerMinCut.py</StartupFile>
+    <StartupFile>Kosaraju.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,10 +30,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Kosaraju.py" />
     <Compile Include="KargerMinCut.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="log_config.py" />
     <Compile Include="QuickSort.py" />
+    <Compile Include="Tests\test_KargerMinCut.py" />
     <Compile Include="__init__ .py" />
     <Compile Include="Tests\__init__.py" />
     <Compile Include="Tests\test_FileMethods.py" />
@@ -46,6 +49,8 @@
     <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\test_graph_simple.txt" />
+    <Content Include="Data\test_graph.txt" />
     <Content Include="parameters_values.json" />
     <Content Include="Tests\parameters_values.json" />
     <Content Include="requirements.txt" />

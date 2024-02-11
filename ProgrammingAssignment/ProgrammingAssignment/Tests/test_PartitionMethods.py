@@ -53,7 +53,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition method correctly partitions an unsorted array.
         The expected output is a partitioned array and the pivot index.
         """ 
-        # arr = [5, 3, 1, 2, 6, 4]
         pivot_index = partition(self.arr_partition, 0, len(self.arr_partition)-1)
         print(f"Unit Testing Array after partition: {self.arr_partition}")
         print(f"Unit Testing Return from test_partition pivot: {pivot_index}")
@@ -66,7 +65,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition method correctly partitions a sorted array.
         The expected output is the same sorted array and the pivot index as 0.
         """ 
-        # arr = [1, 2, 3, 4, 5, 6]
         pivot_index = partition(self.partition_sorted, 0, len(self.partition_sorted)-1)
         print(f"Unit Testing Array partition_sorted: {self.partition_sorted}")
         print(f"Unit Testing Return from partition_sorted pivot: {pivot_index}")
@@ -79,7 +77,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition method correctly partitions a reverse sorted array.
         The expected output is a partitioned array and the pivot index.
         """ 
-        # arr = [6, 5, 4, 3, 2, 1]
         pivot_index = partition(self.partition_reverse_sorted, 0, len(self.partition_reverse_sorted)-1)
         print(f"Unit Testing Array partition_reverse_sorted: {self.partition_reverse_sorted}")
         print(f"Unit Testing Return from partition_reverse_sorted pivot: {pivot_index}")
@@ -92,7 +89,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition method correctly partitions an array with duplicate elements.
         The expected output is a partitioned array and the pivot index.
         """ 
-        # arr = [5, 3, 1, 2, 5, 4]
         pivot_index = partition(self.partition_duplicates, 0, len(self.partition_duplicates)-1)
         print(f"Unit Testing Array partition_duplicates: {self.partition_duplicates}")
         print(f"Unit Testing Return from partition_duplicates pivot: {pivot_index}")
@@ -105,7 +101,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition method correctly handles a negative scenario.
         The expected output is a partitioned array and the pivot index, which should not be the same as the input.
         """ 
-        # arr = [5, 3, 1, 2, 6, 4]
         pivot_index = partition(self.partition_negative_case, 0, len(self.partition_negative_case)-1)
         print(f"Unit Testing Array after partition_negative: {self.partition_negative_case}")
         print(f"Unit Testing Return from partition_negative pivot: {pivot_index}")
@@ -118,7 +113,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition_median method correctly partitions an unsorted array.
         The expected output is a partitioned array and the pivot index.
         """ 
-        # arr = [5, 3, 1, 2, 6, 4]
         pivot_index = partition_median(self.partition_median_positive_case, 0, len(self.partition_median_positive_case)-1)
         print(f"Unit Testing Array after partition_median: {self.partition_median_positive_case}")
         print(f"Unit Testing Return from test_partition_median pivot: {pivot_index}")
@@ -131,7 +125,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition_median method correctly partitions a sorted array.
         The expected output is the same sorted array and the pivot index as the median index.
         """ 
-        # arr = [1, 2, 3, 4, 5, 6]
         pivot_index = partition_median(self.partition_median_sorted, 0, len(self.partition_median_sorted)-1)
         print(f"Unit Testing Array partition_sorted: {self.partition_median_sorted}")
         print(f"Unit Testing Return from partition_sorted pivot: {pivot_index}")
@@ -144,7 +137,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition_median method correctly partitions a reverse sorted array.
         The expected output is a partitioned array and the pivot index as the median index.
         """ 
-        # arr = [6, 5, 4, 3, 2, 1]
         pivot_index = partition_median(self.partition_median_reverse_sorted, 0, len(self.partition_median_reverse_sorted)-1)
         print(f"Unit Testing Array partition_reverse_sorted: {self.partition_median_reverse_sorted}")
         print(f"Unit Testing Return from partition_reverse_sorted pivot: {pivot_index}")
@@ -157,7 +149,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition_median method correctly partitions an array with duplicate elements.
         The expected output is a partitioned array and the pivot index.
         """ 
-        # arr = [5, 3, 1, 2, 5, 4]
         pivot_index = partition_median(self.partition_median_duplicates, 0, len(self.partition_median_duplicates)-1)
         print(f"Unit Testing Array partition_duplicates: {self.partition_median_duplicates}")
         print(f"Unit Testing Return from partition_duplicates pivot: {pivot_index}")
@@ -170,7 +161,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition_median method correctly handles a negative scenario.
         The expected output is a partitioned array and the pivot index, which should not be the same as the input.
         """ 
-        # arr = [5, 3, 1, 2, 6, 4]
         pivot_index = partition_median(self.partition_median_negative_case, 0, len(self.partition_median_negative_case)-1)
         print(f"Unit Testing Array after partition_median_negative: {self.partition_median_negative_case}")
         print(f"Unit Testing Return from partition_median_negative pivot: {pivot_index}")
@@ -183,7 +173,6 @@ class TestPartitionMethods(unittest.TestCase):
         This test case checks if the partition_last method correctly partitions an array.
         The expected output is the same input array and the pivot index as the last index.
         """ 
-        # arr = [5, 3, 1, 2, 6, 4]
         pivot_index = partition_last(self.partition_last, 0, len(self.partition_last)-1)
         print(f"Unit Testing Array after partition_last: {self.partition_last}")
         print(f"Unit Testing Return from test_partition_last pivot: {pivot_index}")
