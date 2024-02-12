@@ -1,5 +1,5 @@
 from colorama import Fore, Style
-from collections import defaultdict
+from igraph import Graph, plot
 import logging
 from log_config import configure_logging
 import sys
@@ -7,88 +7,80 @@ import sys
 configure_logging()
 
 def read_graph_from_file(file_path):
+    """
+    Reads a text file containing edges of a graph and returns an igraph.Graph object.
+    
+    Args:
+        file_path (str): The path to the text file to be read.
+
+    Returns:
+        graph (igraph.Graph): The graph read from the file.
+    """
     logging.info(f"Attempting to read graph data from {file_path}")
-    graph = defaultdict(list)
-    graph_rev = defaultdict(list)
+    edges = []
     try:
         with open(file_path, 'r') as file:
-            edge_count = 0
             for line in file:
                 tail, head = map(int, line.split())
-                graph[tail].append(head)
-                graph_rev[head].append(tail)
-                edge_count += 1
+                edges.append((tail - 1, head - 1))  # Subtract 1 from each vertex label
 
-            all_vertices = set(graph.keys()) | set(graph_rev.keys())
-
-        logging.info(f"File successfully read with {len(all_vertices)} vertices and {edge_count} edges.")
+        logging.info(f"File successfully read with {len(edges)} edges.")
     except FileNotFoundError:
         logging.error(f"File not found: {file_path}")
         sys.exit(1)
     except Exception as e:
         logging.error(f"An error occurred while reading the file: {e}")
         sys.exit(1)
-    return graph, graph_rev
 
-def dfs_iterative(graph, start_vertex, visited, stack=None, count=False):
-    logging.debug(f"Entering DFS for vertex {start_vertex}.")
-    stack_dfs = [start_vertex]
-    size = 0 if count else None
+    graph = Graph.TupleList(edges, directed=True)
+    return graph
 
-    while stack_dfs:
-        vertex = stack_dfs.pop()
-        if vertex not in visited:
-            visited.add(vertex)
-            logging.debug(f"Marking vertex {vertex} as visited.")
-            if count:
-                size += 1
-                logging.debug(f"Current SCC size: {size}.")
-            if stack is not None:
-                stack.append(vertex)
-            for neighbor in graph[vertex]:  
-                if neighbor not in visited:
-                    logging.debug(f"Visiting neighbor {neighbor} of vertex {vertex}. Adding to stack.")
-                    stack_dfs.append(neighbor)
-                    
-    logging.debug(f"Exiting DFS for vertex {start_vertex} with SCC size: {size if count else 'N/A'}.")
-    return size if count else None
+def kosaraju(graph):
+    """
+    Runs the Kosaraju's algorithm on the provided graph and returns the sizes of the 5 largest strongly connected components.
 
-def first_pass(graph_rev, visited, finish_order):
-    logging.info("Starting first pass of Kosaraju's algorithm.")
-    for vertex in graph_rev:
-        if vertex not in visited:
-            dfs_iterative(graph_rev, vertex, visited, finish_order)
+    Args:
+        graph (igraph.Graph): The graph to be analyzed.
 
-def second_pass(graph, visited, finish_order):
-    logging.info("First pass completed. Starting second pass.")
-    scc_sizes = []
-    while finish_order:
-        vertex = finish_order.pop()
-        logging.debug(f"Processing vertex {vertex} from finish_order in second DFS pass.")
-        if vertex not in visited:
-            scc_size = dfs_iterative(graph, vertex, visited, count=True)
-            scc_sizes.append(scc_size)
-            logging.info(f"SCC found with {scc_size} vertices starting from vertex {vertex}.")
-    return scc_sizes
-
-def kosaraju(graph, graph_rev):
+    Returns:
+        top_5_sccs (list): A list containing the sizes of the 5 largest strongly connected components.
+    """
     logging.info("Starting Kosaraju's algorithm.")
-    visited = set()
-    finish_order = []
-    first_pass(graph_rev, visited, finish_order)
-    visited.clear()
-    scc_sizes = second_pass(graph, visited, finish_order)
-    top_5_sccs = sorted(scc_sizes, reverse=True)[:5] + [0] * (5 - len(scc_sizes))
+    sccs = graph.connected_components(mode="STRONG") 
+    scc_sizes = []
+    for scc in sccs:
+        original_labels = [vertex_index + 1 for vertex_index in scc]  
+        scc_size = len(original_labels)  
+        scc_sizes.append(scc_size)
+    top_5_sccs = sorted(scc_sizes, reverse=True)[:5] + [0] * (5 - len(scc_sizes))  
     logging.info("Kosaraju's algorithm completed. SCCs identified.")
     return top_5_sccs
 
+# def visualize_graph(graph):
+#     layout = graph.layout("kk")  
+#     plot(graph, layout=layout, target="graph.png")
+    
+def visualize_graph(graph):
+    """
+    Visualizes the provided graph using the Fruchterman Reingold layout algorithm and saves the visualization as a PNG image.
+
+    Args:
+        graph (igraph.Graph): The graph to be visualized.
+    """
+    layout = graph.layout("fr") 
+    plot(graph, layout=layout, target="graph.png")
+
 def main():
+    """
+    The main function of the program. Reads a graph from a file, visualizes the graph, runs the Kosaraju's algorithm on the graph, and prints the sizes of the 5 largest strongly connected components.
+    """
     try:
         logging.info("Starting the program.")
-        # file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\Data\\graph.txt'
-        file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\Data\\test_graph_simple.txt'
-        graph, graph_rev = read_graph_from_file(file_path)
-        top_5_sccs = kosaraju(graph, graph_rev)
+        # file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\Data\\test_graph_simple.txt'
+        file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\Data\\graph.txt'
+        graph = read_graph_from_file(file_path)
+        visualize_graph(graph)
+        top_5_sccs = kosaraju(graph)
         print(f"{Fore.GREEN}Top 5 SCC sizes: {','.join(map(str, top_5_sccs))}{Style.RESET_ALL}")
     except Exception as e:
         logging.exception("An error occurred during the execution.")
