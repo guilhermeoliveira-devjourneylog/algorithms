@@ -53,20 +53,15 @@ def dfs_iterative(graph, start_vertex, visited, stack=None, count=False):
     logging.debug(f"Exiting DFS for vertex {start_vertex} with SCC size: {size if count else 'N/A'}.")
     return size if count else None
 
-def kosaraju(graph, graph_rev):
-    logging.info("Starting Kosaraju's algorithm.")
-    visited = set()
-    finish_order = []
-    scc_sizes = []
-
+def first_pass(graph_rev, visited, finish_order):
     logging.info("Starting first pass of Kosaraju's algorithm.")
     for vertex in graph_rev:
         if vertex not in visited:
             dfs_iterative(graph_rev, vertex, visited, finish_order)
 
-    visited.clear()
+def second_pass(graph, visited, finish_order):
     logging.info("First pass completed. Starting second pass.")
-
+    scc_sizes = []
     while finish_order:
         vertex = finish_order.pop()
         logging.debug(f"Processing vertex {vertex} from finish_order in second DFS pass.")
@@ -74,7 +69,15 @@ def kosaraju(graph, graph_rev):
             scc_size = dfs_iterative(graph, vertex, visited, count=True)
             scc_sizes.append(scc_size)
             logging.info(f"SCC found with {scc_size} vertices starting from vertex {vertex}.")
+    return scc_sizes
 
+def kosaraju(graph, graph_rev):
+    logging.info("Starting Kosaraju's algorithm.")
+    visited = set()
+    finish_order = []
+    first_pass(graph_rev, visited, finish_order)
+    visited.clear()
+    scc_sizes = second_pass(graph, visited, finish_order)
     top_5_sccs = sorted(scc_sizes, reverse=True)[:5] + [0] * (5 - len(scc_sizes))
     logging.info("Kosaraju's algorithm completed. SCCs identified.")
     return top_5_sccs
