@@ -1,6 +1,9 @@
 import os
 import json
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(current_dir, '..', 'config', 'appsettings.json')
+
 def read_file(file_name):
     """
     Reads a file containing numbers, one per line. Checks if the file exists and, if it does, 
@@ -136,8 +139,9 @@ def quicksort_count(file_name, partition_func):
         comparison_count = quicksort(arr, 0, len(arr), comparison_count, partition_func)
     return comparison_count
 
+
 # Read the JSON file and extract the file_name
-with open('parameters_values.json', 'r') as json_file:
+with open(config_path, 'r') as json_file:
     data = json.load(json_file)
     file_name = data['file_name']
 

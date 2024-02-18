@@ -1,8 +1,18 @@
 from colorama import Fore, Style
 from igraph import Graph, plot
-import logging
-from log_config import configure_logging
 import sys
+import os
+
+# Get the absolute directory of the currently running script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Join the script's directory with the parent directory (os.pardir), creating a path to the project's root directory
+project_root = os.path.join(script_dir, os.pardir)
+
+# Add the project's root directory to Python's sys.path, allowing modules in this directory to be imported as packages
+sys.path.append(os.path.abspath(project_root))
+from utils.log_config import configure_logging
+import logging
 
 configure_logging()
 
@@ -55,10 +65,6 @@ def kosaraju(graph):
     top_5_sccs = sorted(scc_sizes, reverse=True)[:5] + [0] * (5 - len(scc_sizes))  
     logging.info("Kosaraju's algorithm completed. SCCs identified.")
     return top_5_sccs
-
-# def visualize_graph(graph):
-#     layout = graph.layout("kk")  
-#     plot(graph, layout=layout, target="graph.png")
     
 def visualize_graph(graph):
     """
@@ -76,8 +82,8 @@ def main():
     """
     try:
         logging.info("Starting the program.")
-        # file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\Data\\test_graph_simple.txt'
-        file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\Data\\graph.txt'
+        # file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\data\\test-graph-kosaraju.txt'
+        file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\data\\graph-kosaraju.txt'
         graph = read_graph_from_file(file_path)
         visualize_graph(graph)
         top_5_sccs = kosaraju(graph)

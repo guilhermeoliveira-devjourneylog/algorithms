@@ -8,7 +8,7 @@ import logging
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Imports the functions from the KargerMinCut module that will be tested.
-from KargerMinCut import contract_vertices, perform_randomized_contraction, read_graph, find_minimum_cut
+from algorithms.karger_min_cut import contract_vertices, perform_randomized_contraction, read_graph, find_minimum_cut
 
 # Sets up logging to display information about the log level.
 logging.basicConfig(level=logging.INFO)
@@ -59,7 +59,7 @@ class TestKargerMinCut(unittest.TestCase):
         This function should read a graph from a file.
         We check if the function is working correctly by comparing the result with the expected one.
         """
-        file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\Data\\test_graph.txt'
+        file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\data\\test-graph-karger-min-cut.txt'
         self.graph = read_graph(file_path)
         self.assertEqual(self.graph, {1: [2, 3], 2: [1, 3], 3: [1, 2]})
 

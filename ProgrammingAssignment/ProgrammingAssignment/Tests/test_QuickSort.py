@@ -6,7 +6,7 @@ import logging
 # Ensure the correct path is added to sys.path for module import
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from QuickSort import quicksort, partition, insertion_sort
+from algorithms.quick_sort import quicksort, partition
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)

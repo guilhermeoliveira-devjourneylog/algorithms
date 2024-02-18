@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>83cf1cb4-4a87-40fd-b456-3cc435bda1bd</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Kosaraju.py</StartupFile>
+    <StartupFile>algorithms\kosaraju.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,32 +30,40 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Kosaraju.py" />
-    <Compile Include="KargerMinCut.py">
+    <Compile Include="algorithms\dijkstra.py" />
+    <Compile Include="algorithms\kosaraju.py" />
+    <Compile Include="algorithms\karger_min_cut.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="log_config.py" />
-    <Compile Include="QuickSort.py" />
-    <Compile Include="Tests\test_KargerMinCut.py" />
-    <Compile Include="__init__ .py" />
-    <Compile Include="Tests\__init__.py" />
-    <Compile Include="Tests\test_FileMethods.py" />
-    <Compile Include="Tests\test_QuickSort.py" />
-    <Compile Include="Tests\test_PartitionMethods.py" />
-    <Compile Include="Tests\test_InsertionSort.py" />
+    <Compile Include="utils\__init__ .py" />
+    <Compile Include="utils\log_config.py" />
+    <Compile Include="algorithms\quick_sort.py" />
+    <Compile Include="tests\test_KargerMinCut.py" />
+    <Compile Include="algorithms\__init__ .py" />
+    <Compile Include="tests\__init__.py" />
+    <Compile Include="tests\test_FileMethods.py" />
+    <Compile Include="tests\test_QuickSort.py" />
+    <Compile Include="tests\test_PartitionMethods.py" />
+    <Compile Include="tests\test_InsertionSort.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Tests\" />
+    <Folder Include="data\" />
+    <Folder Include="algorithms\" />
+    <Folder Include="igraph\" />
+    <Folder Include="config\" />
+    <Folder Include="documentation\" />
+    <Folder Include="utils\" />
+    <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\test_graph_simple.txt" />
-    <Content Include="Data\test_graph.txt" />
-    <Content Include="parameters_values.json" />
-    <Content Include="Tests\parameters_values.json" />
+    <Content Include="data\test-graph-dijkstra.txt" />
+    <Content Include="data\graph-dijkstra.txt" />
+    <Content Include="data\test-graph-kosaraju.txt" />
+    <Content Include="data\test-graph-karger-min-cut.txt" />
+    <Content Include="config\appsettings.json" />
     <Content Include="requirements.txt" />
-    <Content Include="Data\KargerMinCut.txt" />
-    <Content Include="CommandLine.md" />
+    <Content Include="data\karger-min-cut.txt" />
+    <Content Include="documentation\CommandLine.md" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="venv\">

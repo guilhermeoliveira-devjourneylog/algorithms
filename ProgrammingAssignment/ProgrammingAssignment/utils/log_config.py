@@ -1,8 +1,6 @@
 # log_config.py
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 import logging
-
-# init(convert=True)
 
 class CustomFormatter(logging.Formatter):
     """Logging Formatter to add colors"""

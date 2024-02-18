@@ -5,7 +5,7 @@ import os
 # Ensure the correct path is added to sys.path for module import
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from QuickSort import read_file
+from algorithms.quick_sort import read_file
 
 class TestFileMethods(unittest.TestCase):
     
