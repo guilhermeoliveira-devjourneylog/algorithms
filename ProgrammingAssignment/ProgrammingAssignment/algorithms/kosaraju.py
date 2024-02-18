@@ -73,8 +73,12 @@ def visualize_graph(graph):
     Args:
         graph (igraph.Graph): The graph to be visualized.
     """
+    image_path = os.path.join(script_dir, "igraph", "graph-kosaraju.png")
+    os.makedirs(os.path.dirname(image_path), exist_ok=True)
     layout = graph.layout("fr") 
-    plot(graph, layout=layout, target="graph.png")
+    plot(graph, layout=layout, target=image_path)
+    logging.info(f"Finished visualizing graph. Image saved to {image_path}")
+    
 
 def main():
     """
