@@ -50,7 +50,6 @@
   <ItemGroup>
     <Folder Include="data\" />
     <Folder Include="algorithms\" />
-    <Folder Include="igraph\" />
     <Folder Include="config\" />
     <Folder Include="documentation\" />
     <Folder Include="utils\" />
@@ -63,6 +62,9 @@
     <Content Include="data\test-graph-karger-min-cut.txt" />
     <Content Include="config\appsettings.json" />
     <Content Include="documentation\Dijkstra.md" />
+    <Content Include="documentation\KargerMinCut.md" />
+    <Content Include="documentation\QuickSort.md" />
+    <Content Include="documentation\Kosaraju.md" />
     <Content Include="requirements.txt" />
     <Content Include="data\karger-min-cut.txt" />
     <Content Include="documentation\CommandLine.md" />
