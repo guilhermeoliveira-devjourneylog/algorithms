@@ -1,3 +1,4 @@
+# dijkstra.py
 from colorama import Fore, Style
 from igraph import Graph, plot
 import heapq
@@ -16,7 +17,7 @@ from utils.log_config import configure_logging
 import logging
 
 configure_logging()
-
+    
 def read_graph_from_file(file_path):
     """
     Reads a graph from a file.
@@ -142,7 +143,7 @@ def get_specific_distances(distances, vertices):
     """
     return ','.join(str(distances.get(vertex, 1000000)) for vertex in vertices)
    
-def main():
+def run():
     try:
         logging.info(Fore.GREEN + "Starting the program." + Style.RESET_ALL)
          # file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\data\\test-graph-dijkstra.txt'
@@ -162,4 +163,4 @@ def main():
         logging.exception(Fore.RED + "An error occurred during the execution." + Style.RESET_ALL)
         
 if __name__ == "__main__":
-    main()
+    run()

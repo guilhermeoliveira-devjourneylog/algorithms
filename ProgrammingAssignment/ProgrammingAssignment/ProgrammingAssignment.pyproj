@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>83cf1cb4-4a87-40fd-b456-3cc435bda1bd</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>algorithms\dijkstra.py</StartupFile>
+    <StartupFile>algorithms\main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,6 +35,7 @@
     <Compile Include="algorithms\karger_min_cut.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="algorithms\main.py" />
     <Compile Include="utils\__init__ .py" />
     <Compile Include="utils\log_config.py" />
     <Compile Include="algorithms\quick_sort.py" />
