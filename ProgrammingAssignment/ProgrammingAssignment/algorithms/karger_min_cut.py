@@ -1,3 +1,4 @@
+# karger_min_cut
 from colorama import Fore, Style
 import random
 import copy
@@ -44,11 +45,11 @@ def find_minimum_cut(graph):
         print(f'{Fore.BLUE}Minimum cut found so far: {min_cut}{Style.RESET_ALL}')
     return min_cut
 
-def main():
+def run():
     file_path = 'C:\\Users\\coder\\Dropbox\\PC\\Documents\\Coder Projects\\Git Hub\\stanford algorithm\\algorithms\\ProgrammingAssignment\\ProgrammingAssignment\\data\\karger-min-cut.txt'
     graph = read_graph(file_path)
     print(f'{Fore.RED}Minimum cut: {find_minimum_cut(graph)}{Style.RESET_ALL}')
     print(f'{Fore.GREEN}End of the script{Style.RESET_ALL}')
 
 if __name__ == "__main__":
-    main()
+    run()

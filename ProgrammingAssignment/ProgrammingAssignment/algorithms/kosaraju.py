@@ -1,3 +1,4 @@
+# kosaraju
 from colorama import Fore, Style
 from igraph import Graph, plot
 import sys
@@ -80,7 +81,7 @@ def visualize_graph(graph):
     logging.info(f"Finished visualizing graph. Image saved to {image_path}")
     
 
-def main():
+def run():
     """
     The main function of the program. Reads a graph from a file, visualizes the graph, runs the Kosaraju's algorithm on the graph, and prints the sizes of the 5 largest strongly connected components.
     """
@@ -96,4 +97,4 @@ def main():
         logging.exception("An error occurred during the execution.")
 
 if __name__ == "__main__":
-    main()
+    run()

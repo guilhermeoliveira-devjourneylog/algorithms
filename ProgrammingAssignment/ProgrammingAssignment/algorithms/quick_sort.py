@@ -1,3 +1,4 @@
+# quick_sort
 import os
 import json
 
@@ -140,25 +141,30 @@ def quicksort_count(file_name, partition_func):
     return comparison_count
 
 
-# Read the JSON file and extract the file_name
-with open(config_path, 'r') as json_file:
-    data = json.load(json_file)
-    file_name = data['file_name']
+def run():
+    # Read the JSON file and extract the file_name
+    with open(config_path, 'r') as json_file:
+        data = json.load(json_file)
+        file_name = data['file_name']
 
-# Using the first element as the pivot
-if file_name is not None:
-    comparisons = quicksort_count(file_name, partition)
-    if comparisons is not None:
-        print('Comparisons using the first element as the pivot', comparisons)
-    
-# Using the last element as the pivot
-if file_name is not None:
-    comparisons = quicksort_count(file_name, partition_last)
-    if comparisons is not None:
-        print('Comparisons using the last element as the pivot', comparisons)
-    
-# Using the median-of-three as the pivot
-if file_name is not None:
-    comparisons = quicksort_count(file_name, partition_median)
-    if comparisons is not None:
-        print('Comparisons using the median-of-three as the pivot', comparisons)
+    # Using the first element as the pivot
+    if file_name is not None:
+        comparisons = quicksort_count(file_name, partition)
+        if comparisons is not None:
+            print('Comparisons using the first element as the pivot', comparisons)
+        
+    # Using the last element as the pivot
+    if file_name is not None:
+        comparisons = quicksort_count(file_name, partition_last)
+        if comparisons is not None:
+            print('Comparisons using the last element as the pivot', comparisons)
+        
+    # Using the median-of-three as the pivot
+    if file_name is not None:
+        comparisons = quicksort_count(file_name, partition_median)
+        if comparisons is not None:
+            print('Comparisons using the median-of-three as the pivot', comparisons)
+
+# Call the run function
+if __name__ == "__main__":
+    run()
