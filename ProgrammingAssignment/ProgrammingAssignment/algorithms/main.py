@@ -1,15 +1,20 @@
+from algorithms.median_maintenance import median_maintenance
+
+
 def main():
     print("Select the algorithm you want to run:")
     print("1. Dijkstra")
     print("2. Karger Min Cut")
     print("3. Kosaraju")
     print("4. Quick Sort")
+    print("5. Median Maintenance")
 
     algorithms = {
         '1': ('dijkstra', 'run'),
         '2': ('karger_min_cut', 'run'),
         '3': ('kosaraju', 'run'),
-        '4': ('quick_sort', 'run')
+        '4': ('quick_sort', 'run'),
+        '5': ('median_maintenance', 'run')
     }
 
     choice = input("Enter the number of the algorithm: ")
