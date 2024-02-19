@@ -30,6 +30,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="algorithms\median_maintenance.py" />
     <Compile Include="algorithms\dijkstra.py" />
     <Compile Include="algorithms\kosaraju.py" />
     <Compile Include="algorithms\karger_min_cut.py">
@@ -56,6 +57,8 @@
     <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\test-median.txt" />
+    <Content Include="data\median.txt" />
     <Content Include="data\test-graph-dijkstra.txt" />
     <Content Include="data\graph-dijkstra.txt" />
     <Content Include="data\test-graph-kosaraju.txt" />
