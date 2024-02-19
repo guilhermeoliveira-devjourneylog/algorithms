@@ -30,6 +30,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="algorithms\two_sum - Copy.py" />
+    <Compile Include="algorithms\two_sum.py" />
     <Compile Include="algorithms\median_maintenance.py" />
     <Compile Include="algorithms\dijkstra.py" />
     <Compile Include="algorithms\kosaraju.py" />
@@ -57,6 +59,8 @@
     <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\test-algo1-programming-prob-2sum.txt" />
+    <Content Include="data\algo1-programming-prob-2sum.txt" />
     <Content Include="data\test-median.txt" />
     <Content Include="data\median.txt" />
     <Content Include="data\test-graph-dijkstra.txt" />
@@ -66,6 +70,8 @@
     <Content Include="config\appsettings.json" />
     <Content Include="documentation\Dijkstra.md" />
     <Content Include="documentation\KargerMinCut.md" />
+    <Content Include="documentation\MedianMaintenance.md" />
+    <Content Include="documentation\2SUM.md" />
     <Content Include="documentation\QuickSort.md" />
     <Content Include="documentation\Kosaraju.md" />
     <Content Include="requirements.txt" />
