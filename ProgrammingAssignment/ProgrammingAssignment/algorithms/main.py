@@ -6,6 +6,8 @@ def main():
     print("4. Quick Sort")
     print("5. Median Maintenance")
     print("6. Two Sum")
+    print("7. Greedy")
+    print("8. Prims")
     
     algorithms = {
         '1': ('dijkstra', 'run'),
@@ -13,7 +15,9 @@ def main():
         '3': ('kosaraju', 'run'),
         '4': ('quick_sort', 'run'),
         '5': ('median_maintenance', 'run'),
-        '6': ('two_sum', 'run')
+        '6': ('two_sum', 'run'),
+        '7': ('greedy', 'run'),
+        '8': ('prims', 'run')
     }
 
     choice = input("Enter the number of the algorithm: ")

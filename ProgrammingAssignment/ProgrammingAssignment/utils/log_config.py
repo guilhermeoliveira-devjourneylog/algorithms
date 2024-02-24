@@ -27,7 +27,7 @@ class CustomFormatter(logging.Formatter):
         return formatter.format(record)
 
 def configure_logging():
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(filename)s:%(lineno)d - %(funcName)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     logger = logging.getLogger()
     for handler in logger.handlers:
         handler.setFormatter(CustomFormatter())
