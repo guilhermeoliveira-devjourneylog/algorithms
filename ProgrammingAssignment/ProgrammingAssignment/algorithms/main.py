@@ -10,6 +10,7 @@ def main():
     print("8. Prims")
     print("9. Kruskal")
     print("10. Kruskal Hash")
+    print("11. Greedy Huffman")
     
     algorithms = {
         '1': ('dijkstra', 'run'),
@@ -21,7 +22,8 @@ def main():
         '7': ('greedy', 'run'),
         '8': ('prims', 'run'),
         '9': ('kruskal', 'run'),
-        '10': ('kruskal_hash', 'run')
+        '10': ('kruskal_hash', 'run'),
+        '11': ('greedy_huffman', 'run')
     }
 
     choice = input("Enter the number of the algorithm: ")
