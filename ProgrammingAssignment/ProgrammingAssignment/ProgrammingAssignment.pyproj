@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="algorithms\.py" />
+    <Compile Include="algorithms\max_weight_independent_set_path_graph.py" />
     <Compile Include="algorithms\greedy_huffman.py" />
     <Compile Include="algorithms\kruskal_hash.py" />
     <Compile Include="algorithms\kruskal.py" />
@@ -67,6 +68,7 @@
     <Content Include="data\edges-prims.txt" />
     <Content Include="data\graph-clustering-big.txt" />
     <Content Include="data\graph-clustering.txt" />
+    <Content Include="data\mwis.txt" />
     <Content Include="data\karger-min-cut.txt" />
     <Content Include="data\test-greedy-job.txt" />
     <Content Include="data\test-algo1-programming-prob-2sum.txt" />
@@ -80,6 +82,7 @@
     <Content Include="config\appsettings.json" />
     <Content Include="documentation\Dijkstra.md" />
     <Content Include="documentation\Clustering.md" />
+    <Content Include="documentation\DynamicProgrammingAlgorithmMaxWeight.md" />
     <Content Include="documentation\Huffman.md" />
     <Content Include="documentation\Prims.md" />
     <Content Include="documentation\KargerMinCut.md" />
