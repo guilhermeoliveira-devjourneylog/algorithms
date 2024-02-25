@@ -12,6 +12,7 @@ def main():
     print("10. Kruskal Hash")
     print("11. Greedy Huffman")
     print("12. Max Weigh Independent Set Path Graph")
+    print("13. Knapsack")
     
     algorithms = {
         '1': ('dijkstra', 'run'),
@@ -25,7 +26,8 @@ def main():
         '9': ('kruskal', 'run'),
         '10': ('kruskal_hash', 'run'),
         '11': ('greedy_huffman', 'run'),
-        '12': ('max_weight_independent_set_path_graph', 'run')
+        '12': ('max_weight_independent_set_path_graph', 'run'),
+        '13': ('knapsack', 'run')
     }
 
     choice = input("Enter the number of the algorithm: ")
