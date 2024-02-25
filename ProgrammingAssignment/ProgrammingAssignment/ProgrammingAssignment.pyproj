@@ -30,6 +30,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="algorithms\.py" />
+    <Compile Include="algorithms\kruskal_hash.py" />
+    <Compile Include="algorithms\kruskal.py" />
     <Compile Include="algorithms\prims.py" />
     <Compile Include="algorithms\greedy.py" />
     <Compile Include="algorithms\two_sum.py" />
@@ -61,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="data\edges-prims.txt" />
+    <Content Include="data\graph-clustering-big.txt" />
+    <Content Include="data\graph-clustering.txt" />
     <Content Include="data\test-greedy-job.txt" />
     <Content Include="data\test-algo1-programming-prob-2sum.txt" />
     <Content Include="data\algo1-programming-prob-2sum.txt" />
@@ -72,6 +77,7 @@
     <Content Include="data\test-graph-karger-min-cut.txt" />
     <Content Include="config\appsettings.json" />
     <Content Include="documentation\Dijkstra.md" />
+    <Content Include="documentation\Clustering.md" />
     <Content Include="documentation\Prims.md" />
     <Content Include="documentation\KargerMinCut.md" />
     <Content Include="documentation\MedianMaintenance.md" />

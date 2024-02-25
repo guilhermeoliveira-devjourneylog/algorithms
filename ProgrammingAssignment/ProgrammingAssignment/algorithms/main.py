@@ -8,6 +8,8 @@ def main():
     print("6. Two Sum")
     print("7. Greedy")
     print("8. Prims")
+    print("9. Kruskal")
+    print("10. Kruskal Hash")
     
     algorithms = {
         '1': ('dijkstra', 'run'),
@@ -17,7 +19,9 @@ def main():
         '5': ('median_maintenance', 'run'),
         '6': ('two_sum', 'run'),
         '7': ('greedy', 'run'),
-        '8': ('prims', 'run')
+        '8': ('prims', 'run'),
+        '9': ('kruskal', 'run'),
+        '10': ('kruskal_hash', 'run')
     }
 
     choice = input("Enter the number of the algorithm: ")
