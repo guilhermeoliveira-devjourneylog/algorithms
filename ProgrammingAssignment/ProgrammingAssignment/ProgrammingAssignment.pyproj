@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="algorithms\.py" />
+    <Compile Include="algorithms\knapsack_big_data.py" />
     <Compile Include="algorithms\knapsack.py" />
     <Compile Include="algorithms\max_weight_independent_set_path_graph.py" />
     <Compile Include="algorithms\greedy_huffman.py" />
@@ -69,6 +70,7 @@
     <Content Include="data\edges-prims.txt" />
     <Content Include="data\graph-clustering-big.txt" />
     <Content Include="data\graph-clustering.txt" />
+    <Content Include="data\knapsack-big-data.txt" />
     <Content Include="data\knapsack.txt" />
     <Content Include="data\mwis.txt" />
     <Content Include="data\karger-min-cut.txt" />
@@ -82,6 +84,7 @@
     <Content Include="data\test-graph-kosaraju.txt" />
     <Content Include="data\test-graph-karger-min-cut.txt" />
     <Content Include="config\appsettings.json" />
+    <Content Include="documentation\KnapsackBigData.md" />
     <Content Include="documentation\Knapsack.md" />
     <Content Include="documentation\Dijkstra.md" />
     <Content Include="documentation\Clustering.md" />
