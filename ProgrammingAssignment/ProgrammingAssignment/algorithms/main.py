@@ -14,6 +14,7 @@ def main():
     print("12. Max Weigh Independent Set Path Graph")
     print("13. Knapsack")
     print("14. Knapsack Big Data")
+    print("15. Floyd Warshall")
     
     algorithms = {
         '1': ('dijkstra', 'run'),
@@ -29,7 +30,8 @@ def main():
         '11': ('greedy_huffman', 'run'),
         '12': ('max_weight_independent_set_path_graph', 'run'),
         '13': ('knapsack', 'run'),  
-        '14': ('knapsack_big_data', 'run')
+        '14': ('knapsack_big_data', 'run'),
+        '15': ('graph_for_the_all_pairs_shortest_path', 'run')
     }
 
     choice = input("Enter the number of the algorithm: ")
@@ -40,7 +42,7 @@ def main():
         function = getattr(module, function_name)
         function()
     else:
-        print("Invalid option. Please select a number from 1 to 4.")
+        print("Invalid option. Please select a number from 1 to 15.")
 
 if __name__ == "__main__":
     main()
