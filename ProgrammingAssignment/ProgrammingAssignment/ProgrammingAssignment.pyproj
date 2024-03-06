@@ -31,6 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="algorithms\.py" />
+    <Compile Include="algorithms\não  fazer commit.py" />
+    <Compile Include="algorithms\traveling_salesman_problem_big_data.py" />
     <Compile Include="algorithms\traveling_salesman_problem.py" />
     <Compile Include="algorithms\knapsack_big_data.py" />
     <Compile Include="algorithms\knapsack.py" />
@@ -72,6 +74,8 @@
     <Content Include="data\edges-prims.txt" />
     <Content Include="data\graph-clustering-big.txt" />
     <Content Include="data\graph-clustering.txt" />
+    <Content Include="data\test-tsp-traveling-salesman-problem-small-data.txt" />
+    <Content Include="data\tsp-traveling-salesman-problem-big-data.txt" />
     <Content Include="data\tsp-traveling-salesman-problem.txt" />
     <Content Include="data\graph-for-the-all-pairs-shortest-path-3.txt" />
     <Content Include="data\graph-for-the-all-pairs-shortest-path-2.txt" />
@@ -91,6 +95,7 @@
     <Content Include="config\appsettings.json" />
     <Content Include="data\graph-for-the-all-pairs-shortest-path-1.txt" />
     <Content Include="documentation\AllPairsShortestPath.md" />
+    <Content Include="documentation\TravelingSalesmanProblemBigData.md" />
     <Content Include="documentation\TravelingSalesmanProblem.md" />
     <Content Include="documentation\KnapsackBigData.md" />
     <Content Include="documentation\Knapsack.md" />
