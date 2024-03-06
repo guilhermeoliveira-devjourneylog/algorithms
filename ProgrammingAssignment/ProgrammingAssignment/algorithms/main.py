@@ -16,6 +16,7 @@ def main():
     print("14. Knapsack Big Data")
     print("15. Floyd Warshall")
     print("16. Traveling Salesman Problem")
+    print("17. Traveling Salesman Problem Big Data")
     
     algorithms = {
         '1': ('dijkstra', 'run'),
@@ -33,7 +34,8 @@ def main():
         '13': ('knapsack', 'run'),  
         '14': ('knapsack_big_data', 'run'),
         '15': ('graph_for_the_all_pairs_shortest_path', 'run'),
-        '16': ('traveling_salesman_problem', 'run')
+        '16': ('traveling_salesman_problem', 'run'),
+        '17': ('traveling_salesman_problem_big_data', 'run')
     }
 
     choice = input("Enter the number of the algorithm: ")
