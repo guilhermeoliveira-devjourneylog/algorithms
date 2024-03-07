@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="algorithms\.py" />
-    <Compile Include="algorithms\não  fazer commit.py" />
+    <Compile Include="algorithms\solve_problem_2SAT.py" />
     <Compile Include="algorithms\traveling_salesman_problem_big_data.py" />
     <Compile Include="algorithms\traveling_salesman_problem.py" />
     <Compile Include="algorithms\knapsack_big_data.py" />
@@ -71,9 +71,11 @@
     <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\test-2sat.txt" />
     <Content Include="data\edges-prims.txt" />
     <Content Include="data\graph-clustering-big.txt" />
     <Content Include="data\graph-clustering.txt" />
+    <Content Include="data\test-greedy-job - Copy.txt" />
     <Content Include="data\test-tsp-traveling-salesman-problem-small-data.txt" />
     <Content Include="data\tsp-traveling-salesman-problem-big-data.txt" />
     <Content Include="data\tsp-traveling-salesman-problem.txt" />
@@ -83,7 +85,6 @@
     <Content Include="data\knapsack.txt" />
     <Content Include="data\mwis.txt" />
     <Content Include="data\karger-min-cut.txt" />
-    <Content Include="data\test-greedy-job.txt" />
     <Content Include="data\test-algo1-programming-prob-2sum.txt" />
     <Content Include="data\algo1-programming-prob-2sum.txt" />
     <Content Include="data\test-median.txt" />
@@ -95,6 +96,7 @@
     <Content Include="config\appsettings.json" />
     <Content Include="data\graph-for-the-all-pairs-shortest-path-1.txt" />
     <Content Include="documentation\AllPairsShortestPath.md" />
+    <Content Include="documentation\2SAT.md" />
     <Content Include="documentation\TravelingSalesmanProblemBigData.md" />
     <Content Include="documentation\TravelingSalesmanProblem.md" />
     <Content Include="documentation\KnapsackBigData.md" />
